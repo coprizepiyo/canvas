@@ -17,3 +17,8 @@ ul {
   margin: 0 auto;
   border: 1px solid #ccc;
 }
+
+.item-img {
+  width: 150px;
+  height: 250px;
+}
