@@ -5,7 +5,7 @@ var R = 8;
 var MARGIN_TOP = 60;
 var MARGIN_LEFT = 30;
 
-const endTime = new Date(2017, 6, 30, 18, 23, 45);
+const endTime = new Date(2018, 6, 30, 18, 23, 45);
 var currentShowTime = 0;
 
 var balls = [];
