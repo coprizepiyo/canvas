@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <canvas id="canvas" style="display:block; border: 1px solid #ccc; margin: 50px auto;">
+    您的浏览器不支持canvas，请更换浏览器
+  </canvas>
+
+  <script>
+    const data = [
+      {p: [{x: 0, y: 0}, {x: 500, y: 0}, {x: 250, y: 250}], color: '#CEFE68'},
+      {p: [{x: 0, y: 0}, {x: 0, y: 500}, {x: 250, y: 250}], color: '#66BDCF'},
+      {p: [{x: 0, y: 500}, {x: 250, y: 500}, {x: 125, y: 375}], color: '#F78ECE'},
+      {p: [{x: 125, y: 375}, {x: 250, y: 500}, {x: 375, y: 375}, {x: 250, y: 250}], color: '#A793C4'},
+      {p: [{x: 250, y: 500}, {x: 500, y: 500}, {x: 500, y: 250}], color: '#F7CA28'},
+      {p: [{x: 250, y: 250}, {x: 375, y: 375}, {x: 375, y: 125}], color: '#FAF61C'},
+      {p: [{x: 500, y: 0}, {x: 500, y: 250}, {x: 375, y: 375}, {x: 375, y: 125}], color: '#F13C64'}
+    ];
+
+    window.onload = function () {
+      const canvas = document.getElementById('canvas');
+
+      canvas.width = 500;
+      canvas.height = 500;
+
+      const context = canvas.getContext('2d');
+
+      for (let i = 0; i < data.length; i++) {
+        draw(data[i], context)
+      }
+    }
+
+    function draw (piece, ctx) {
+      ctx.beginPath();
+      ctx.moveTo(piece.p[0].x, piece.p[0].y);
+      for (let i = 1; i < piece.p.length; i ++) {
+        ctx.lineTo(piece.p[i].x, piece.p[i].y);
+      }
+      ctx.closePath();
+
+      ctx.fillStyle = piece.color;
+      ctx.fill();
+
+      ctx.stroke();
+    }
+  </script>
+</body>
+
+</html>
