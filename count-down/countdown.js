@@ -5,7 +5,7 @@ var R = 8;
 var MARGIN_TOP = 60;
 var MARGIN_LEFT = 30;
 
-const endTime = new Date(2018, 6, 30, 18, 23, 45);
+const endTime = new Date();
 var currentShowTime = 0;
 
 var balls = [];
@@ -29,7 +29,7 @@ window.onload = function () {
 
 function getCurrentShowTime() {
   var currentTime = new Date();
-  var ret = endTime.getTime() - currentTime.getTime();
+  var ret = endTime.getTime() + 1000 * 60 * 60 * 24 - currentTime.getTime();
   ret = Math.round(ret/1000);
 
   return ret >= 0 ? ret : 0;
